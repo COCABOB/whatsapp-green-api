@@ -1,6 +1,17 @@
+import { useState, useEffect } from 'react'
 import styles from '../css/SignIn.module.css'
 
-export default function SignIn() {
+export default function SignIn({ handleSignIn, error, isSignedIn }) {
+  const [idInstance, setIdInstance] = useState('')
+  const [apiTokenInstance, setApiTokenInstance] = useState('')
+  const handleSubmit = e => {
+    e.preventDefault()
+    const userData = {
+      idInstance,
+      apiTokenInstance
+    }
+    handleSignIn(userData)
+  }
   return (
     <div className={`row container container-fluid ${styles.container}`}>
       <div
@@ -10,7 +21,7 @@ export default function SignIn() {
           <h1 className={styles.logo}>🟢WhatsGreen</h1>
           <p className={styles.logoDescription}>Chat using GreenAPI</p>
         </div>
-        <form className={styles.form}>
+        <form className={styles.form} onSubmit={e => handleSubmit(e)}>
           <label className={`form-label ${styles.formLabel}`}>
             ID Instance
           </label>
@@ -19,6 +30,7 @@ export default function SignIn() {
             name='idInstance'
             className={`form-control ${styles.formInput}`}
             id='inputIdInstance'
+            onChange={e => setIdInstance(e.target.value)}
           />
 
           <label className={`form-label ${styles.formLabel}`}>
@@ -29,7 +41,8 @@ export default function SignIn() {
             type='password'
             name='apiTokenInstance'
             className={`form-control ${styles.formInput}`}
-            id='inputIdInstance'
+            id='inputApiTokenInstance'
+            onChange={e => setApiTokenInstance(e.target.value)}
           />
           <div className='d-flex align-items-center justify-content-center'>
             <button
@@ -39,8 +52,11 @@ export default function SignIn() {
               Sign in
             </button>
           </div>
+          {isSignedIn ? <h1>✅</h1> : <h1>👺</h1>}
         </form>
         <div className='d-flex align-items-end justify-content-center'>
+          {/* {isSignedIn && <p>You are signed in!</p>}
+          {error && <p>{error}</p>} */}
           <a
             href='https://console.green-api.com/'
             className={styles.signUp}
