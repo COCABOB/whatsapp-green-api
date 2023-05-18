@@ -1,0 +1,53 @@
+.signInWrapper {
+  background-color: rgb(26, 43, 53);
+  border: 1px rgb(70, 90, 100) solid;
+  border-radius: 10px;
+  color: white;
+  min-height: 70vh;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
+}
+
+.logo {
+  margin-top: 5%;
+  font-size: 2.5rem;
+  font-size: 800;
+}
+
+.logoDescription {
+  font-style: italic;
+  color: rgb(194, 194, 194);
+}
+
+.separator {
+  text-align: center;
+  max-width: 80%;
+}
+
+.signInHeading {
+  margin-top: 5%;
+}
+
+.form {
+  position: relative;
+  text-align: left;
+  margin: 6% 12% 15% 12%;
+}
+
+.formLabel:not(:first-child) {
+  margin-top: 20px;
+}
+
+.formBtn {
+  text-align: center;
+  width: 100%;
+  font-weight: 400;
+  margin-top: 10%;
+}
+
+.signUp {
+  color: white;
+  text-align: center;
+  position: absolute;
+  bottom: 4%;
+}
