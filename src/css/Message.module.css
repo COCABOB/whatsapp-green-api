@@ -1,7 +1,36 @@
 .messageSent {
-  color: green;
+  text-align: left;
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: 40%;
+  font-size: 18px;
+  word-wrap: break-word;
+  background-color: #005c4b;
+  color: white;
+  border-radius: 10px;
+  padding: 6px 12px;
+  margin-left: auto;
+  align-items: end;
+}
+
+.messageSent:after {
+  border-width: 0px 0 10px 10px;
+  border-color: transparent transparent transparent #005c4b;
+  top: 0;
+  right: -10px;
 }
 
 .messageReceived {
-  color: blue;
+  text-align: left;
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: 40%;
+  font-size: 18px;
+  word-wrap: break-word;
+  background-color: #005c4b;
+  color: white;
+  border-radius: 10px;
+  padding: 6px 12px;
+  margin-right: auto;
+  align-items: start;
 }

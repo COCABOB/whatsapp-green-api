@@ -24,6 +24,7 @@ export default function Chat({
 
         <div className={styles.chatField}>
           <div className='d-flex align-items-center justify-content-center'></div>
+          {console.log(messages)}
           {messages.map(message => (
             <Message {...message} key={message.id} />
           ))}

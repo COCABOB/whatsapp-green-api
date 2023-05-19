@@ -1,7 +1,30 @@
+@mixin anyMessage {
+  text-align: left;
+  width: fit-content;
+  max-width: 40%;
+  font-size: 18px;
+  word-wrap: break-word;
+  background-color: #005c4b;
+  color: white;
+  border-radius: 10px;
+  padding: 6px 12px;
+}
+
 .messageSent {
-  color: green;
+  @include anyMessage;
+  margin-left: auto;
+  align-items: end;
+}
+
+.messageSent:after {
+  border-width: 0px 0 10px 10px;
+  border-color: transparent transparent transparent #005c4b;
+  top: 0;
+  right: -10px;
 }
 
 .messageReceived {
-  color: blue;
+  @include anyMessage;
+  margin-right: auto;
+  align-items: start;
 }
