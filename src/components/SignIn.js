@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import styles from '../css/SignIn.module.css'
 
 export default function SignIn({ handleSignIn, error, isSignedIn }) {
@@ -52,7 +52,7 @@ export default function SignIn({ handleSignIn, error, isSignedIn }) {
               Sign in
             </button>
           </div>
-          {isSignedIn ? <h1>✅</h1> : <h1>👺</h1>}
+          {/* CHECK IF SIGNED IN {isSignedIn ? <h1>✅</h1> : <h1>👺</h1>} */}
         </form>
         <div className='d-flex align-items-end justify-content-center'>
           {/* {isSignedIn && <p>You are signed in!</p>}

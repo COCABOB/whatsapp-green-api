@@ -3,7 +3,7 @@
   border: 1px rgb(70, 90, 100) solid;
   border-radius: 10px;
   color: white;
-  min-height: 70vh;
+  min-height: 55vh;
   max-height: -moz-fit-content;
   max-height: fit-content;
 }
@@ -43,6 +43,7 @@
   width: 100%;
   font-weight: 400;
   margin-top: 10%;
+  background-color: #00d26a;
 }
 
 .signUp {
