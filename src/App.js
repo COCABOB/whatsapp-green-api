@@ -1,30 +1,33 @@
 import './css/App.css'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { useState, useEffect, useCallback } from 'react'
-import { v4 as uuidv4 } from 'uuid'
-import whatsAppClient from '@green-api/whatsapp-api-client'
+import { useState, useEffect } from 'react'
+
 import SignIn from './components/SignIn'
 import CreateChat from './components/CreateChat'
 import Chat from './components/Chat'
 
-function App() {
-  const [isSignedIn, setIsSignedIn] = useState(false)
+export default function App() {
+  // stateInstance - состояние авторизации пользователя в Green API
   const [stateInstance, setStateInstance] = useState([])
-  const [error, setError] = useState('')
+  // если isSignedIn - false, пользователю будет показана страница со входом
+  const [isSignedIn, setIsSignedIn] = useState(false)
+  // в userData хранится idInstance и apiTokenInstance
   const [userData, setUserData] = useState([])
+
+  // state phoneNumber нужен для проверки существования (existsWhatsapp) адресанта в WhatsApp
   const [phoneNumber, setPhoneNumber] = useState()
-  const [existsWhatsapp, setExistsWhatsapp] = useState()
+  const [existsWhatsapp, setExistsWhatsapp] = useState(false)
+
+  // если chatCreated - true, пользователь будет переведен на страницу с созданным чатом
   const [chatCreated, setChatCreated] = useState(false)
-  const [messages, setMessages] = useState([])
-  const [isSent, setIsSent] = useState(false)
-  const [newSentMessage, setNewSentMessage] = useState([])
+  const [error, setError] = useState('')
 
   const handleSignIn = userData => {
     setUserData(userData)
-    console.log(userData)
   }
+  // Хук для авторизации с введёнными пользователем данными
   useEffect(() => {
     ;(async function () {
+      // Хук начнет работу только только после ввода пользователем данных
       if (!!userData.idInstance && !!userData.apiTokenInstance) {
         try {
           const res = await fetch(
@@ -36,11 +39,10 @@ function App() {
           setError(e.message)
           console.log(e.message)
         } finally {
-          if (stateInstance.stateInstance === 'authorized') {
-            setIsSignedIn(true)
-          } else {
-            setIsSignedIn(false)
-          }
+          // Обработка авторизации и присваивание стейту isSignedIn ответ с сервера
+          stateInstance.stateInstance === 'authorized'
+            ? setIsSignedIn(true)
+            : setIsSignedIn(false)
         }
       }
     })()
@@ -50,10 +52,16 @@ function App() {
     stateInstance.stateInstance
   ])
 
+  // Номер телефона будет обновляться при его вводе пользователем
   const handleCheckNumber = phone => {
     setPhoneNumber(phone)
   }
-
+  // Обработчик сабмита формы для создания чата
+  const handleCreateChat = () => {
+    setChatCreated(existsWhatsapp)
+    setPhoneNumber(phoneNumber)
+  }
+  // Хук для проверки существования в WhatsApp введённого номера телефона
   useEffect(() => {
     ;(async function () {
       if (!!phoneNumber) {
@@ -67,17 +75,12 @@ function App() {
             request
           )
           const response = await res.json()
-          console.log(response)
-          if (response.existsWhatsapp === true) {
-            setExistsWhatsapp(true)
-          } else {
-            setExistsWhatsapp(false)
-          }
+          response.existsWhatsapp === true
+            ? setExistsWhatsapp(true)
+            : setExistsWhatsapp(false)
         } catch (e) {
           setError(e.message)
           console.log(e.message)
-        } finally {
-          console.log(existsWhatsapp)
         }
       }
     })()
@@ -88,93 +91,11 @@ function App() {
     existsWhatsapp
   ])
 
-  const handleCreateChat = created => {
-    setChatCreated(created)
-    setPhoneNumber(phoneNumber)
-    console.log(`check - ${chatCreated}`)
-  }
-
-  const handleSendMessage = messageText => {
-    const newMessage = {
-      text: messageText,
-      isSent: true,
-      id: uuidv4()
-    }
-    setMessages([...messages, newMessage])
-    setNewSentMessage(newMessage)
-    setIsSent(true)
-  }
-
-  useEffect(() => {
-    ;(async function () {
-      if (isSent && !!newSentMessage) {
-        try {
-          const request = {
-            method: 'POST',
-            body: JSON.stringify({
-              chatId: `${phoneNumber.substring(1)}@c.us`,
-              message: `${newSentMessage.text}`
-            })
-          }
-          const res = await fetch(
-            `https://api.green-api.com/waInstance${userData.idInstance}/SendMessage/${userData.apiTokenInstance}`,
-            request
-          )
-          const response = await res.json()
-          console.log(response)
-        } catch (e) {
-          setError(e.message)
-          console.log(e.message)
-        } finally {
-          setIsSent(false)
-        }
-      }
-    })()
-  }, [
-    userData.idInstance,
-    userData.apiTokenInstance,
-    phoneNumber,
-    messages,
-    isSent,
-    setIsSent,
-    newSentMessage
-  ])
-
-  useEffect(() => {
-    ;(async () => {
-      if (chatCreated) {
-        let restAPI = whatsAppClient.restAPI({
-          idInstance: userData.idInstance,
-          apiTokenInstance: userData.apiTokenInstance
-        })
-        try {
-          await restAPI.webhookService.startReceivingNotifications()
-          restAPI.webhookService.onReceivingMessageText(body => {
-            console.log('onReceivingMessageText', body)
-            const newMessage = {
-              text: body.messageData.textMessageData.textMessage,
-              isSent: false,
-              id: uuidv4()
-            }
-            setMessages([...messages, newMessage])
-            restAPI.webhookService.stopReceivingNotifications()
-          })
-        } catch (ex) {
-          console.error(ex)
-        }
-      }
-    })()
-  }, [userData, chatCreated, messages, setMessages])
-
   return (
     <div className='App'>
       {isSignedIn ? (
         chatCreated ? (
-          <Chat
-            phoneNumber={phoneNumber}
-            messages={messages}
-            handleSendMessage={handleSendMessage}
-          />
+          <Chat phoneNumber={phoneNumber} userData={userData} />
         ) : (
           <CreateChat
             isSignedIn={isSignedIn}
@@ -193,5 +114,3 @@ function App() {
     </div>
   )
 }
-
-export default App

@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import styles from '../css/SignIn.module.css'
 
-export default function SignIn({ handleSignIn, error, isSignedIn }) {
+export default function SignIn({ handleSignIn }) {
   const [idInstance, setIdInstance] = useState('')
   const [apiTokenInstance, setApiTokenInstance] = useState('')
+
+  // Передаем введённые пользователем данные и вызываем handleSignIn
   const handleSubmit = e => {
     e.preventDefault()
     const userData = {
@@ -12,6 +14,7 @@ export default function SignIn({ handleSignIn, error, isSignedIn }) {
     }
     handleSignIn(userData)
   }
+
   return (
     <div className={`row container container-fluid ${styles.container}`}>
       <div
@@ -47,16 +50,14 @@ export default function SignIn({ handleSignIn, error, isSignedIn }) {
           <div className='d-flex align-items-center justify-content-center'>
             <button
               type='submit'
+              disabled={!!idInstance && !!apiTokenInstance ? false : true}
               className={`btn btn-success justify-content-center ${styles.formBtn}`}
             >
               Sign in
             </button>
           </div>
-          {/* CHECK IF SIGNED IN {isSignedIn ? <h1>✅</h1> : <h1>👺</h1>} */}
         </form>
         <div className='d-flex align-items-end justify-content-center'>
-          {/* {isSignedIn && <p>You are signed in!</p>}
-          {error && <p>{error}</p>} */}
           <a
             href='https://console.green-api.com/'
             className={styles.signUp}

@@ -1,20 +1,20 @@
 import styles from '../css/CreateChat.module.css'
-import { useState } from 'react'
 
 export default function CreateChat({
   existsWhatsapp,
   handleCreateChat,
   handleCheckNumber
 }) {
+  // Динамично проверяем существует ли введённый номер, чтобы пользователь видел это перед тем как создать чат
   const inputChange = e => {
     handleCheckNumber(e.target.value)
   }
-
   const handleSubmit = e => {
     e.preventDefault()
     handleCheckNumber(e.target.value)
-    handleCreateChat(existsWhatsapp)
+    handleCreateChat()
   }
+
   return (
     <div className={`row container container-fluid ${styles.container}`}>
       <div
@@ -47,6 +47,7 @@ export default function CreateChat({
           <div className='d-flex align-items-center justify-content-center'>
             <button
               type='submit'
+              disabled={existsWhatsapp ? false : true}
               className={`btn btn-success justify-content-center ${styles.formBtn}`}
             >
               Continue

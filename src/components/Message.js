@@ -1,6 +1,7 @@
 import styles from '../css/Message.module.css'
 
 export default function Message(message) {
+  // если isSent = true, кидаем сообщение вправо, false - влево
   return (
     <>
       {message.isSent ? (
