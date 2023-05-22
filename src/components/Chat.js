@@ -125,7 +125,7 @@ export default function Chat({ phoneNumber, userData }) {
   return (
     <div className={`row container container-fluid ${styles.container}`}>
       <div
-        className={`col-sm-10 col-lg-4 col-md-6 position-absolute top-50 start-50 translate-middle  ${styles.chatWrapper}`}
+        className={`col-sm-12 col-lg-4 col-md-12 position-absolute top-50 start-50 translate-middle  ${styles.chatWrapper}`}
       >
         <div className={styles.header}>
           <svg
