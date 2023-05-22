@@ -1,37 +1,36 @@
 .signInWrapper {
-  background-color: rgb(26, 43, 53);
-  border: 1px rgb(70, 90, 100) solid;
-  border-radius: 10px;
-  color: white;
   min-height: 30vh;
   max-height: fit-content;
-}
+  border: 1px rgb(70, 90, 100) solid;
+  border-radius: 10px;
+  background-color: rgb(26, 43, 53);
+  color: white;
+  .formDescription {
+    margin-top: 5%;
+    font-style: italic;
+    color: rgb(194, 194, 194);
+  }
 
-.formDescription {
-  margin-top: 5%;
-  font-style: italic;
-  color: rgb(194, 194, 194);
-}
+  .signInHeading {
+    margin-top: 5%;
+  }
 
-.signInHeading {
-  margin-top: 5%;
-}
+  .form {
+    position: relative;
+    text-align: left;
+    margin: 6% 12% 8% 12%;
+  }
 
-.form {
-  position: relative;
-  text-align: left;
-  margin: 6% 12% 8% 12%;
-}
+  .formBtn {
+    text-align: center;
+    width: 100%;
+    font-weight: 400;
+    background-color: #00d26a;
+  }
 
-.formBtn {
-  text-align: center;
-  width: 100%;
-  font-weight: 400;
-  background-color: #00d26a;
-}
-
-.phoneExist {
-  margin-top: 3%;
-  font-style: italic;
-  color: rgb(194, 194, 194);
+  .phoneExist {
+    margin-top: 3%;
+    font-style: italic;
+    color: rgb(194, 194, 194);
+  }
 }

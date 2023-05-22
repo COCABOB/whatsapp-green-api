@@ -1,30 +1,52 @@
 @mixin anyMessage {
+  position: relative;
   text-align: left;
   width: fit-content;
-  max-width: 40%;
-  font-size: 18px;
+  max-width: 50%;
+  font-size: 16px;
   word-wrap: break-word;
-  background-color: #005c4b;
   color: white;
   border-radius: 10px;
-  padding: 6px 12px;
+  padding: 3px 10px;
+}
+@mixin messageBubble {
+  content: '';
+  width: 0px;
+  height: 10px;
+  position: absolute;
+  border-radius: 5px;
 }
 
 .messageSent {
   @include anyMessage;
-  margin-left: auto;
   align-items: end;
-}
-
-.messageSent:after {
-  border-width: 0px 0 10px 10px;
-  border-color: transparent transparent transparent #005c4b;
-  top: 0;
-  right: -10px;
+  margin-left: auto;
+  padding-right: 13px;
+  background-color: #005c4b;
+  &:before {
+    @include messageBubble;
+    border-left: 10px solid #005c4b;
+    border-right: 12px solid transparent;
+    border-top: 14px solid #005c4b;
+    border-bottom: 0px solid transparent;
+    right: -10px;
+    top: 0px;
+  }
 }
 
 .messageReceived {
   @include anyMessage;
-  margin-right: auto;
   align-items: start;
+  margin-right: auto;
+  padding-left: 13px;
+  background: #202c33;
+  &:before {
+    @include messageBubble;
+    border-left: 10px solid transparent;
+    border-right: 12px solid #202c33;
+    border-top: 14px solid #202c33;
+    border-bottom: 0px solid transparent;
+    left: -10px;
+    top: 0px;
+  }
 }
