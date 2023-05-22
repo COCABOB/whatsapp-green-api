@@ -1,9 +1,9 @@
-# WhatsApp clone via Green API (https://green-api.com/)
+# WhatsApp clone via Green API (https://cocabob.github.io/whatsgreen-build/)
 
 - Chat screenshot
 - ![project photo](https://github.com/COCABOB/whatsapp-green-api/assets/129005053/02a68883-ee70-4693-a310-c82beffa207d)
 
-- Vide demonstration
+- Videо demonstration
 - https://youtu.be/y-22v00HTU8
 
 - Responsiveness
@@ -22,7 +22,7 @@
 # Technologies used:
 - HTML/CSS/BOOTSTRAP/SCSS
 - JavaScript, React
-- GreenApi
+- GreenApi (https://green-api.com/)
 
 ## To build:
 - npm i
