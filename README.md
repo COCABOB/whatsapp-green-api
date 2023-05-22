@@ -1,8 +1,10 @@
-# WhatsApp clone via Green API (https://green-api.com/)
+# WhatsApp clone via Green API (https://cocabob.github.io/whatsgreen-build/)
 
 - Chat screenshot
 - ![project photo](https://github.com/COCABOB/whatsapp-green-api/assets/129005053/02a68883-ee70-4693-a310-c82beffa207d)
 
+- Videо demonstration
+- https://youtu.be/y-22v00HTU8
 
 - Responsiveness
 - ![image](https://github.com/COCABOB/whatsapp-green-api/assets/129005053/d803cdff-45f4-4cd8-a47e-b50d7e115aec)
@@ -13,21 +15,21 @@
 
 
 - Create chat page
-- ![image](https://github.com/COCABOB/whatsapp-green-api/assets/129005053/52d1c344-be74-967-b414-3e69a5272244)
+- ![Screenshot_20230522_082114](https://github.com/COCABOB/whatsapp-green-api/assets/129005053/e1dac6d6-e870-47eb-b4c7-e8470c7c2916)
 
 
 
 # Technologies used:
 - HTML/CSS/BOOTSTRAP/SCSS
 - JavaScript, React
-- GreenApi
+- GreenApi (https://green-api.com/)
 
 ## To build:
+- git clone (or download source code)
 - npm i
-- npm run build
+- npm start
 
 *react-create-app*
-
 ### `npm start`
 ### `npm test`
 ### `npm run build`
