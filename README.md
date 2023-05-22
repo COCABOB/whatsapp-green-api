@@ -1,70 +1,34 @@
-# WhatsApp clone via green API
+# WhatsApp clone via Green API (https://green-api.com/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- Chat screenshot
+- ![project photo](https://github.com/COCABOB/whatsapp-green-api/assets/129005053/02a68883-ee70-4693-a310-c82beffa207d)
 
-## Available Scripts
 
-In the project directory, you can run:
+- Responsiveness
+- ![image](https://github.com/COCABOB/whatsapp-green-api/assets/129005053/d803cdff-45f4-4cd8-a47e-b50d7e115aec)
+
+
+- Sign in page
+- ![Screenshot_20230522_060530](https://github.com/COCABOB/whatsapp-green-api/assets/129005053/67173ae3-386b-4b7b-937d-f27a904ca7fb)
+
+
+- Create chat page
+- ![image](https://github.com/COCABOB/whatsapp-green-api/assets/129005053/52d1c344-be74-967-b414-3e69a5272244)
+
+
+
+# Technologies used:
+- HTML/CSS/BOOTSTRAP/SCSS
+- JavaScript, React
+- GreenApi
+
+## To build:
+- npm i
+- npm run build
+
+*react-create-app*
 
 ### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
 ### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
 ### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
