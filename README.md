@@ -1,5 +1,5 @@
-# WhatsApp clone via green API
-![alt text]([http://url/to/img.png](https://ibb.co/r0h71cW))
+# WhatsApp clone via Green API (https://green-api.com/)
+![alt text](https://ibb.co/r0h71cW)
 
 # Technologies used:
 - HTML/CSS/BOOTSTRAP/SCSS
