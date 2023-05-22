@@ -25,11 +25,11 @@
 - GreenApi (https://green-api.com/)
 
 ## To build:
+- git clone (or download source code)
 - npm i
-- npm run build
+- npm start
 
 *react-create-app*
-
 ### `npm start`
 ### `npm test`
 ### `npm run build`
